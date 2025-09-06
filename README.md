@@ -3,10 +3,15 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/JasonRobertDestiny/SmartSEO_Analyzer)
 
 ## 📋 Overview
 
 SmartSEO Analyzer is an intelligent SEO analysis tool that combines traditional technical SEO checks with modern AI-enhanced analysis. Built upon the Python SEO Analyzer foundation, this enhanced version features a user-friendly web interface and AI-powered deep analysis capabilities.
+
+## 🌐 Live Demo
+
+**Try it now**: [SmartSEO Analyzer Live Demo](https://smartseo-analyzer.onrender.com) (deployed on Render)
 
 ## ✨ Key Features
 
@@ -31,7 +36,15 @@ SmartSEO Analyzer is an intelligent SEO analysis tool that combines traditional 
 
 ## 🚀 Quick Start
 
-### Method 1: Web Interface (Recommended for Beginners)
+### Method 1: Use Live Demo (Easiest)
+Visit [SmartSEO Analyzer Live Demo](https://smartseo-analyzer.onrender.com) - no installation required!
+
+### Method 2: Deploy to Render (One-Click)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/JasonRobertDestiny/SmartSEO_Analyzer)
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
+
+### Method 3: Local Web Interface
 
 1. **Start Web Application**
    ```bash
@@ -53,7 +66,7 @@ SmartSEO Analyzer is an intelligent SEO analysis tool that combines traditional 
    - Click "Start SEO Analysis"
    - View detailed results and download reports
 
-### Method 2: Command Line
+### Method 4: Command Line
 
 ```bash
 # Basic analysis
