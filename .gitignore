@@ -49,6 +49,20 @@ build/
 
 .DS_Store
 
+# 新增：Web应用相关
+analysis_result.html
+*.html
+
+# 临时文件
+*.tmp
+*.temp
+temp/
+tmp/
+
+# 备份文件
+*.bak
+*.backup
+
 # ipython
 *.ipynb
 .ipynb_checkpoints/*

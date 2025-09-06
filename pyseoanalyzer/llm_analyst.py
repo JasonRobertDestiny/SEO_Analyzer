@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.output_parsers import PydanticOutputParser
@@ -58,9 +58,10 @@ class SEORecommendations(BaseModel):
 
 class LLMSEOEnhancer:
     def __init__(self):
-        self.llm = ChatAnthropic(
-            model="claude-3-sonnet-20240229",
-            anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY"),
+        self.llm = ChatOpenAI(
+            model="Qwen/Qwen2.5-VL-72B-Instruct",
+            api_key=os.environ.get("SILICONFLOW_API_KEY"),
+            base_url="https://api.siliconflow.cn/v1",
             temperature=0,
             timeout=30,
             max_retries=3,

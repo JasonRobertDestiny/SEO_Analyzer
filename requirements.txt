@@ -1,8 +1,9 @@
 beautifulsoup4==4.13.3
 certifi==2025.1.31
+Flask
 Jinja2==3.1.6
 langchain==0.3.22
-langchain-anthropic==0.3.10
+langchain-openai
 lxml==5.3.1
 MarkupSafe==3.0.2
 pytest==8.3.2 # Added for testing
