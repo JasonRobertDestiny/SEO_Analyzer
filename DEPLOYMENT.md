@@ -25,7 +25,7 @@ Click the button below to deploy directly to Render:
    - **Name**: `smartseo-analyzer` (or your preferred name)
    - **Environment**: `Python 3`
    - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn web_app:app`
+   - **Start Command**: `gunicorn wsgi:app`
    - **Instance Type**: `Free` (or upgrade as needed)
 
 6. **Set Environment Variables** (Optional for AI features):
