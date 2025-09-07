@@ -28,8 +28,11 @@ USER appuser
 
 WORKDIR /app
 
-# Copy the wsgi file to the app directory
+# Copy necessary files to the app directory
 COPY --chown=appuser:appgroup wsgi.py .
+COPY --chown=appuser:appgroup web_app.py .
+COPY --chown=appuser:appgroup -r ./templates ./templates
+COPY --chown=appuser:appgroup -r ./static ./static
 
 # Expose the port
 EXPOSE $PORT
