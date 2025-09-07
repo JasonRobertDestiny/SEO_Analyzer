@@ -21,11 +21,18 @@ RUN chown -R appuser:appgroup /python-seo-analyzer
 # Switch back to root to install the package system-wide
 USER root
 RUN python3 -m pip install /python-seo-analyzer
+RUN python3 -m pip install gunicorn
 
 # Switch back to the non-root user
 USER appuser
 
 WORKDIR /app
 
-ENTRYPOINT ["python-seo-analyzer"]
-CMD ["--version"]
+# Copy the wsgi file to the app directory
+COPY --chown=appuser:appgroup wsgi.py .
+
+# Expose the port
+EXPOSE $PORT
+
+# Run gunicorn
+CMD exec gunicorn --bind :$PORT wsgi:app
