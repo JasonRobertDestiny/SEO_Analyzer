@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "smartseo-analyzer"
+name = "smartseo"
 version = "2.0.0"
 authors = [
   {name = "Enhanced by AI", email = "smartseo@example.com"},
@@ -22,9 +22,24 @@ dependencies = [
     "urllib3==2.5.0",
 ]
 requires-python = ">= 3.8"
-description = "An intelligent SEO analysis tool with AI-powered insights and user-friendly web interface. Combines traditional technical SEO checks with modern AI analysis capabilities."
+description = "SmartSEO: An intelligent SEO analysis tool with AI-powered insights and user-friendly web interface. Combines traditional technical SEO checks with modern AI analysis capabilities."
 readme = "README.md"
 license = {file = "LICENSE"}
+
+[tool.hatch.build.targets.wheel]
+packages = ["pyseoanalyzer"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/pyseoanalyzer",
+    "/templates", 
+    "/static",
+    "/web_app.py",
+    "/wsgi.py",
+    "/requirements.txt",
+    "/README.md",
+    "/LICENSE"
+]
 keywords = [
     "seo analysis",
     "artificial intelligence", 
@@ -53,7 +68,7 @@ classifiers = [
 ]
 
 [project.scripts]
-python-seo-analyzer = "pyseoanalyzer.__main__:main"
+smartseo = "pyseoanalyzer.__main__:main"
 
 [project.urls]
 Homepage = "https://github.com/sethblack/python-seo-analyzer"

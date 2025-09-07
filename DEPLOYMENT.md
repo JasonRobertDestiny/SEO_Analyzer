@@ -6,7 +6,7 @@
 
 Click the button below to deploy directly to Render:
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/JasonRobertDestiny/SmartSEO_Analyzer)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yourusername/SmartSEO)
 
 ### Option 2: Manual Deployment
 
@@ -18,11 +18,11 @@ Click the button below to deploy directly to Render:
 
 4. **Create a new Web Service**:
    - Click "New +" → "Web Service"
-   - Connect your GitHub repository: `SmartSEO_Analyzer`
+   - Connect your GitHub repository: `SmartSEO`
    - Choose your deployment branch: `main`
 
 5. **Configure the service**:
-   - **Name**: `smartseo-analyzer` (or your preferred name)
+   - **Name**: `smartseo` (or your preferred name)
    - **Environment**: `Python 3`
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `gunicorn wsgi:app`

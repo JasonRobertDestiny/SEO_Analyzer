@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: smartseo-analyzer
+    name: smartseo
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
