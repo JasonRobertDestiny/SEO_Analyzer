@@ -70,3 +70,7 @@ tmp/
 
 # PyCharm
 .idea/*
+
+# Task cache files
+tasks_cache.pkl
+*.pkl

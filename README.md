@@ -1,9 +1,36 @@
 # 🚀 SmartSEO - AI-Powered SEO Analysis Platform
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/JasonRobertDestiny/SmartSEO_Analyzer)
+
+## ⚡ Quick Start [快速开始](#快速开始)
+
+### 🎯 One-Click Launch [一键启动](#一键启动)
+
+```bash
+# 启动SmartSEO服务
+python start.py
+```
+
+### 🌐 Access URLs [访问地址](#访问地址)
+
+| Service | URL | Description |
+|---------|-----|-------------|
+| 🚀 **SmartSEO** | http://localhost:8000 | 现代化SEO分析平台 |
+| 📖 **API Docs** | http://localhost:8000/docs | 交互式API文档 |
+| 🏥 **Health Check** | http://localhost:8000/health | 服务状态检查 |
+
+### 📁 Key Files [关键文件](#关键文件)
+
+- **`start.py`** → 🚀 主启动脚本
+- **`main.py`** → 📱 FastAPI应用核心
+- **`app/`** → 📁 应用模块目录
+- **`pyseoanalyzer/`** → 🔍 SEO分析引擎
+
+> 💡 **建议**: 服务启动后访问 http://localhost:8000 即可使用Web界面进行SEO分析！
+
+---
 
 ## 📋 Overview [概述](#概述)
 
@@ -11,11 +38,6 @@ SmartSEO is an intelligent SEO analysis platform that combines traditional techn
 
 SmartSEO是一个智能SEO分析平台，结合了传统的技术SEO审计和尖端的AI驱动洞察。拥有强大的命令行工具和直观的Web界面，使专业SEO分析对每个人都变得可及。
 
-## 🌐 Live Demo [在线演示](#在线演示)
-
-**Experience it now**: [SmartSEO Live Demo](https://smartseo-analyzer.onrender.com)
-
-**立即体验**: [SmartSEO 在线演示](https://smartseo-analyzer.onrender.com)
 
 ## ✨ Key Features [主要功能](#主要功能)
 
@@ -52,15 +74,7 @@ SmartSEO是一个智能SEO分析平台，结合了传统的技术SEO审计和尖
 
 ## 🚀 Quick Start [快速开始](#快速开始)
 
-### 1. Live Demo (No Installation) [在线演示（无需安装）](#在线演示无需安装)
-Visit [SmartSEO Live Demo](https://smartseo-analyzer.onrender.com) and start analyzing immediately!
-
-访问[SmartSEO 在线演示](https://smartseo-analyzer.onrender.com)立即开始分析！
-
-### 2. One-Click Cloud Deployment [一键云端部署](#一键云端部署)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/JasonRobertDestiny/SmartSEO_Analyzer)
-
-### 3. Local Installation [本地安装](#本地安装)
+### Local Installation [本地安装](#本地安装)
 
 **Install Dependencies [安装依赖]**
 ```bash
@@ -70,16 +84,16 @@ pip install -r requirements.txt
 **Start Web Interface [启动Web界面]**
 ```bash
 # Windows
-start_web.bat
+python web_app.py
 
 # macOS/Linux
 python web_app.py
 ```
 
 **Access Application [访问应用]**
-Open your browser to: http://localhost:5000
+Open your browser to: http://localhost:8000
 
-打开浏览器访问: http://localhost:5000
+打开浏览器访问: http://localhost:8000
 
 ### 4. Command Line Usage [命令行使用](#命令行使用)
 
@@ -182,7 +196,7 @@ smartseo https://example.com --sitemap https://example.com/sitemap.xml
 
 ### Backend Stack [后端技术栈](#后端技术栈)
 - **Python 3.8+**: Core language
-- **Flask**: Web framework
+- **FastAPI**: Web framework
 - **LangChain**: AI orchestration
 - **BeautifulSoup**: HTML parsing
 - **Trafilatura**: Content extraction

@@ -1,10 +1,63 @@
 import time
+import asyncio
+import aiohttp
 from operator import itemgetter
+from typing import Dict, List, Optional, Any
+from urllib.parse import urljoin, urlparse
+import logging
+
 from .website import Website
+from .page import Page
+
+logger = logging.getLogger(__name__)
 
 
 def calc_total_time(start_time):
     return time.time() - start_time
+
+
+class SEOAnalyzer:
+    """基础SEO分析器类"""
+    
+    def __init__(self, max_pages: int = 50, timeout: int = 120):
+        self.max_pages = max_pages
+        self.timeout = timeout
+        
+    async def analyze_website(self, url: str) -> Dict[str, Any]:
+        """分析网站 - 需要在子类中实现"""
+        raise NotImplementedError("子类必须实现analyze_website方法")
+    
+    async def _analyze_single_page(self, session: aiohttp.ClientSession, url: str) -> Optional[Page]:
+        """分析单个页面"""
+        try:
+            # 使用 Page 类正确的初始化方式
+            page = Page(
+                url=url,
+                base_domain=url,
+                analyze_headings=True,
+                analyze_extra_tags=True
+            )
+            # Page 类有自己的 analyze 方法来获取和分析页面内容
+            success = page.analyze()
+            if success:
+                return page
+            else:
+                logger.warning(f"页面分析失败: {url}")
+                return None
+        except Exception as e:
+            logger.error(f"分析页面失败: {url} - {e}")
+            return None
+    
+    def _create_error_result(self, error_message: str) -> Dict[str, Any]:
+        """创建错误结果"""
+        return {
+            "pages": [],
+            "total_pages": 0,
+            "keywords": {"words": [], "bigrams": []},
+            "success": False,
+            "error": error_message,
+            "analysis_time": 0
+        }
 
 
 def analyze(

@@ -8,7 +8,7 @@ class Http:
         user_agent = {"User-Agent": "Mozilla/5.0"}
 
         self.http = PoolManager(
-            timeout=Timeout(connect=2.0, read=7.0),
+            timeout=Timeout(connect=10.0, read=30.0),  # 增加超时时间：连接10秒，读取30秒
             cert_reqs="CERT_REQUIRED",
             ca_certs=certifi.where(),
             headers=user_agent,

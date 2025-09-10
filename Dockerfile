@@ -21,7 +21,6 @@ RUN chown -R appuser:appgroup /python-seo-analyzer
 # Switch back to root to install the package system-wide
 USER root
 RUN python3 -m pip install /python-seo-analyzer
-RUN python3 -m pip install gunicorn
 
 # Switch back to the non-root user
 USER appuser
@@ -29,13 +28,15 @@ USER appuser
 WORKDIR /app
 
 # Copy necessary files to the app directory
-COPY --chown=appuser:appgroup wsgi.py .
-COPY --chown=appuser:appgroup web_app.py .
+COPY --chown=appuser:appgroup start.py .
+COPY --chown=appuser:appgroup main.py .
+COPY --chown=appuser:appgroup ./app/ ./app/
+COPY --chown=appuser:appgroup ./pyseoanalyzer/ ./pyseoanalyzer/
 COPY --chown=appuser:appgroup ./templates/ ./templates/
 COPY --chown=appuser:appgroup ./static/ ./static/
 
 # Expose the port
-EXPOSE $PORT
+EXPOSE 8000
 
-# Run gunicorn
-CMD exec gunicorn --bind :$PORT wsgi:app
+# Run the FastAPI application with uvicorn
+CMD exec python start.py

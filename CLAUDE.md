@@ -6,13 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Running the Application
 ```bash
+# Start the application
+python start.py                 # FastAPI server on port 8000
+
 # CLI usage
 python -m pyseoanalyzer https://example.com
 python -m pyseoanalyzer https://example.com --run-llm-analysis
-
-# Web interface
-python web_app.py                    # Development server
-python start_production.py           # Production server
 ```
 
 ### Testing
@@ -31,7 +30,7 @@ pytest --cov=pyseoanalyzer
 ```bash
 # Build and run
 docker build -t smartseo-analyzer .
-docker run -p 5000:5000 smartseo-analyzer
+docker run -p 8000:8000 smartseo-analyzer
 ```
 
 ## Architecture Overview
@@ -40,14 +39,18 @@ docker run -p 5000:5000 smartseo-analyzer
 - **analyzer.py**: Main analysis orchestrator that coordinates crawling and analysis
 - **website.py**: Handles website crawling, sitemap parsing, and page collection
 - **page.py**: Individual page analysis for SEO metrics
-- **llm_analyst.py**: AI-powered analysis using LangChain and OpenAI/SiliconFlow APIs
+- **llm_analyst.py**: AI-powered analysis using LangChain and SiliconFlow API
 - **http.py**: HTTP request handling with rate limiting and error management
+
+### Web Interface
+- **FastAPI Implementation** (main.py, app/): Modern async framework with automatic API docs at /docs
 
 ### Key Design Patterns
 - **Modular Architecture**: Analysis engine separated from web interface
 - **Dual Interface**: Same core logic serves both CLI and web interfaces
 - **Optional AI Enhancement**: LLM analysis is opt-in via --run-llm-analysis flag
 - **Template-based Reports**: Uses Jinja2 for flexible report generation
+- **Async Processing**: FastAPI supports concurrent analysis with background tasks
 
 ### Data Flow
 1. Input URL → website.py crawls and collects pages
@@ -59,11 +62,14 @@ docker run -p 5000:5000 smartseo-analyzer
 ### Important Implementation Details
 - Uses BeautifulSoup4 for HTML parsing and Trafilatura for content extraction
 - Rate limiting implemented in http.py to respect server resources
-- AI analysis requires valid API keys in environment variables
-- Web interface uses Flask with Bootstrap 5 for responsive design
-- Production deployment via Gunicorn (Unix) or Waitress (Windows)
+- AI analysis requires SILICONFLOW_API_KEY in environment variables
+- Automatic API documentation available at /docs (Swagger) and /redoc
+- Production deployment via uvicorn with multiple worker support
+- Background task management with persistence
 
 ### Environment Variables
-- `OPENAI_API_KEY`: OpenAI API key for AI analysis
-- `SILICONFLOW_API_KEY`: SiliconFlow API key (alternative to OpenAI)
-- `FLASK_ENV`: Set to 'production' for deployment
+- `SILICONFLOW_API_KEY`: Required for AI analysis features (SiliconFlow)
+- `OPENAI_API_KEY`: Alternative OpenAI API key for AI analysis
+- `HOST`: Server host (default: 0.0.0.0)
+- `PORT`: Server port (default: 8000)
+- `DEBUG`: Enable debug mode with auto-reload (default: false)

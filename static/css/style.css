@@ -790,6 +790,28 @@ body {
 .score-good { background: linear-gradient(135deg, #4299e1, #3182ce); }
 .score-warning { background: linear-gradient(135deg, #ed8936, #dd6b20); }
 .score-poor { background: linear-gradient(135deg, #f56565, #e53e3e); }
+.score-info { background: linear-gradient(135deg, #805ad5, #6b46c1); }
+
+/* 改进分数圆圈下方文字的可读性 */
+.score-circle + p {
+    color: #2d3748;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 统计卡片区域整体样式 */
+.row.mb-4 .col-md-3 {
+    padding: 1rem;
+}
+
+.row.mb-4 .col-md-3 p {
+    margin-bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 /* CTA Section */
 .cta-section {
